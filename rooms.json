@@ -1,0 +1,154 @@
+{
+  "rooms": [
+    {
+      "name": "Master Bedroom",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Light and calming designs for a serene bedroom.",
+          "image": "images/aesthetic-master-bedroom.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "Luxurious designs with a grand touch.",
+          "image": "images/royal-master-bedroom.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Sleek and contemporary designs for a fresh look.",
+          "image": "images/modern-master-bedroom.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Simple, functional designs with minimal clutter.",
+          "image": "images/minimalist-master-bedroom.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Kids' Bedroom",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Calming and cheerful designs for kids.",
+          "image": "images/aesthetic-kids-bedroom.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "A playful yet regal design for the little ones.",
+          "image": "images/royal-kids-bedroom.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Bright and modern designs for kids.",
+          "image": "images/modern-kids-bedroom.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Simple and clean designs with a fun touch.",
+          "image": "images/minimalist-kids-bedroom.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Hall",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Elegant and cozy designs for a welcoming space.",
+          "image": "images/aesthetic-hall.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "Grand and luxurious designs for a majestic look.",
+          "image": "images/royal-hall.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Clean and sharp designs for a modern living space.",
+          "image": "images/modern-hall.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Open, airy designs with minimal decor.",
+          "image": "images/minimalist-hall.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Kitchen",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Simple yet elegant kitchen designs.",
+          "image": "images/aesthetic-kitchen.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "Luxurious designs for a grand kitchen.",
+          "image": "images/royal-kitchen.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Contemporary designs for a sleek kitchen space.",
+          "image": "images/modern-kitchen.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Functional, clutter-free kitchen designs.",
+          "image": "images/minimalist-kitchen.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Balcony",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Beautiful, light-filled designs for a peaceful balcony.",
+          "image": "images/aesthetic-balcony.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "Regal and elegant designs for a grand balcony view.",
+          "image": "images/royal-balcony.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Contemporary balcony designs with sleek elements.",
+          "image": "images/modern-balcony.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Simple, open designs for an airy balcony.",
+          "image": "images/minimalist-balcony.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Bathroom",
+      "styles": [
+        {
+          "name": "Aesthetic",
+          "description": "Relaxing, spa-like bathroom designs.",
+          "image": "images/aesthetic-bathroom.jpg"
+        },
+        {
+          "name": "Royal",
+          "description": "Elegant and luxurious bathroom designs.",
+          "image": "images/royal-bathroom.jpg"
+        },
+        {
+          "name": "Modern",
+          "description": "Clean and contemporary designs for a sleek bathroom.",
+          "image": "images/modern-bathroom.jpg"
+        },
+        {
+          "name": "Minimalist",
+          "description": "Simple and functional designs with minimal clutter.",
+          "image": "images/minimalist-bathroom.jpg"
+        }
+      ]
+    }
+  ]
+}

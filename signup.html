@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HomeDesignPro</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="login.html">Login</a></li> <!-- Link to login page -->
+            </ul>
+        </nav>
+    </header>
+
+    <section class="auth-container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 HomeDesignPro. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Save user credentials to localStorage
+            localStorage.setItem(username, password);
+
+            alert('Account created successfully!');
+            window.location.href = 'login.html'; // Redirect to login page after signup
+        });
+    </script>
+</body>
+</html>

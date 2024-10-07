@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Design Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HomeDesignPro</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html" class="active">Rooms</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Select a Design Style for <span id="room-name"></span></h2>
+        <div class="style-grid" id="style-grid">
+            <!-- Style cards will be loaded here -->
+        </div>
+        <div id="style-content" style="display:none;">
+            <!-- Content for the selected style will appear here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 HomeDesignPro. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Updated Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const room = urlParams.get('room').replace('-', ' ').toLowerCase(); // Get room name from URL and handle hyphens and casing
+
+            document.getElementById('room-name').textContent = room.charAt(0).toUpperCase() + room.slice(1); // Capitalize the first letter for display
+
+            // Fetch styles from the JSON file
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(data => {
+                    const styleGrid = document.getElementById('style-grid');
+                    const selectedRoom = data.rooms.find(r => r.name.toLowerCase() === room); // Match the room name case-insensitively
+
+                    if (selectedRoom) {
+                        // Clear the previous content
+                        styleGrid.innerHTML = '';
+
+                        // Loop through the styles and create buttons for each
+                        selectedRoom.styles.forEach(style => {
+                            const styleCard = document.createElement('div');
+                            styleCard.classList.add('style-card');
+                            styleCard.innerHTML = `
+                                <h3>${style.name}</h3>
+                                <p>${style.description}</p>
+                                <button class="cta-button" onclick="showStyleContent('${style.name}')">View ${style.name}</button>
+                            `;
+                            styleGrid.appendChild(styleCard);
+                        });
+                    } else {
+                        styleGrid.innerHTML = '<p>No styles available for this room.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('style-grid').innerHTML = '<p>Error loading styles. Please try again later.</p>';
+                });
+        });
+
+        // Function to display the content for the selected style
+        function showStyleContent(styleName) {
+            const styleContent = document.getElementById('style-content');
+            styleContent.style.display = 'block'; // Show the content area
+            styleContent.innerHTML = ''; // Clear existing content
+
+            // Fetch the JSON data again to get the style details
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(data => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const room = urlParams.get('room').replace('-', ' ').toLowerCase(); // Get the room name again
+
+                    const selectedRoom = data.rooms.find(r => r.name.toLowerCase() === room);
+
+                    if (selectedRoom) {
+                        const selectedStyle = selectedRoom.styles.find(s => s.name.toLowerCase() === styleName.toLowerCase());
+                        if (selectedStyle) {
+                            styleContent.innerHTML = `
+                                <h3>${selectedStyle.name}</h3>
+                                <p>${selectedStyle.description}</p>
+                                <img src="${selectedStyle.image}" alt="${selectedStyle.name}" style="max-width: 100%; height: auto;">
+                            `;
+                        } else {
+                            styleContent.innerHTML = '<p>Style details not found.</p>';
+                        }
+                    } else {
+                        styleContent.innerHTML = '<p>No room details found.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching style details:', error);
+                    styleContent.innerHTML = '<p>Error loading style content. Please try again later.</p>';
+                });
+        }
+    </script>
+</body>
+</html>

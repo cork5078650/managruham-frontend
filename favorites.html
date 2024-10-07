@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HomeDesignPro</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="favorites.html" class="active">Favorites</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Your Favorites</h2>
+        <div id="favorites-container">
+            <!-- Placeholder for displaying favorites -->
+            <p id="no-favorites">You haven't saved any designs yet.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 HomeDesignPro. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simulate fetching saved favorites from localStorage
+        const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        const favoritesContainer = document.getElementById('favorites-container');
+        const noFavoritesMessage = document.getElementById('no-favorites');
+
+        if (savedFavorites.length > 0) {
+            noFavoritesMessage.style.display = 'none';
+            savedFavorites.forEach(favorite => {
+                const favoriteItem = document.createElement('div');
+                favoriteItem.classList.add('favorite-item');
+                favoriteItem.innerHTML = `<h3>${favorite.room}</h3><p>Style: ${favorite.style}</p>`;
+                favoritesContainer.appendChild(favoriteItem);
+            });
+        }
+    </script>
+</body>
+</html>
